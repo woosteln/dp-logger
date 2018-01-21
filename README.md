@@ -186,3 +186,4 @@ Todos
 
 - Add better handling for bad data types.
 - Allow empty map to pass data straight through, or expose `strict mode`.
+- Reduce dependencies. Request is a little heavy on the libraries.
