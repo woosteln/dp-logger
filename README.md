@@ -108,6 +108,34 @@ dplogger.log( 'deviceId', data, map );
 
 Sends `{"$id":"deviceId","temp":1000}` to device pilot.
 
+#### Update the token at runtime
+
+```js
+dplogger.token(myNewToken);
+```
+
+#### Update the mapping at runtime
+
+```js
+dplogger.map(myNewMap);
+```
+
+#### Use a dummy / local url for testing
+
+```js
+const dpConfig = {
+  "token" : "XXXXXX",
+  "baseurl" : "http://localhost:8080"
+};
+const dpMap = {
+  "key" : {
+    "type" : "string"
+  }
+}
+const logger = dp( dpConfig, dpMap );
+// Logger set to default, and sends requests to http://localhost:8080
+```
+
 QA
 --
 
@@ -152,3 +180,9 @@ Would transform it to a device pilot friendly:
 ```
 { "temp" : 100 }
 ```
+
+Todos
+-----
+
+- Add better handling for bad data types.
+- Allow empty map to pass data straight through, or expose `strict mode`.
