@@ -1,7 +1,7 @@
 {
   "name": "dp-logger",
   "version": "1.0.0",
-  "description": "Logging utility for device pilot service",
+  "description": "Logging utility for DevicePilot service",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha **/*.spec.js"
