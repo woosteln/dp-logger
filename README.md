@@ -1,9 +1,9 @@
 dp-logger
 =========
 
-### Logging utility for device pilot service
+### Logging utility for DevicePilot service
 
-A singleton logging utility to easily allow sending data to device pilot's
+A singleton logging utility to easily allow sending data to DevicePilot's
 metric collection service.
 
 Install
@@ -65,7 +65,7 @@ const deviceId = 'XXX-YYY-ZZZ';
 const data = { "temp" : 30, "status" : "happy", "meta" : { "$ts" : "2017-01-01T00:00:00.000Z"} };
 
 dplogger.log( deviceId, data );
-// Sends { "temp" : 30, "status" : "happy" : "timestamp" : "2017-01-01T00:00:00.000Z" } to device pilot
+// Sends { "temp" : 30, "status" : "happy" : "timestamp" : "2017-01-01T00:00:00.000Z" } to DevicePilot
 
 ```
 
@@ -89,7 +89,7 @@ const dplogger = dp.get_default_logger();
 dplogger.log( 'deviceId', { temp: 100 } );
 ```
 
-Sends `{"$id":"deviceId","temp":100}` to device pilot.
+Sends `{"$id":"deviceId","temp":100}` to DevicePilot.
 
 #### Log something with a custom mapping
 
@@ -106,7 +106,7 @@ const map = {
 dplogger.log( 'deviceId', data, map );
 ```
 
-Sends `{"$id":"deviceId","temp":1000}` to device pilot.
+Sends `{"$id":"deviceId","temp":1000}` to DevicePilot.
 
 #### Update the token at runtime
 
@@ -142,17 +142,17 @@ QA
 ### Why the mapping?
 
 Often the data you are naturally handling in your app is not necesarily in the
-key value format you need to send to device pilot.
+key value format you need to send to DevicePilot.
 
 Examples:
 - you may have nested objects / data.
 - you may use a particular set of keys that suits the domain of your db, but not
-  your devicePilot implementation.
+  your DevicePilot implementation.
 
 The mapping allows for three things:
-- It only copies data accross to device pilot that is of the correct type.
-- It reduces nested data to a flat map that can be logged to device pilot.
-- It allows you to remap keys to the format required for device pilot.
+- It only copies data accross to DevicePilot that is of the correct type.
+- It reduces nested data to a flat map that can be logged to DevicePilot.
+- It allows you to remap keys to the format required for DevicePilot.
 
 So the following mapping entry:
 
@@ -175,7 +175,7 @@ Given the data:
 }
 ```
 
-Would transform it to a device pilot friendly:
+Would transform it to a DevicePilot friendly:
 
 ```
 { "temp" : 100 }
