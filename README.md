@@ -79,7 +79,7 @@ const data = [{ "$id" : "deviceId1", "temp" : 30, "status" : "happy", "meta" : {
 const batchSize = 500;
 const postInterval = 30;
 
-dplogger.log( data, batchSize, postInterval );
+dplogger.logBatch( data, batchSize, postInterval );
 // Sends data array to DevicePilot, with a batch size/number of updated devices of 500, and a POST request interval of 30 seconds;
 
 ```
