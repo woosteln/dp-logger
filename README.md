@@ -68,7 +68,21 @@ dplogger.log( deviceId, data );
 // Sends { "temp" : 30, "status" : "happy" : "timestamp" : "2017-01-01T00:00:00.000Z" } to DevicePilot
 
 ```
+If you want to log batch data:
 
+_mymodule.js_
+
+```js
+
+const data = [{ "$id" : "deviceId1", "temp" : 30, "status" : "happy", "meta" : { "$ts" : "2017-01-01T00:00:00.000Z"} },
+              { "$id" : "deviceId2", "temp" : 35, "status" : "happy", "meta" : { "$ts" : "2017-01-01T00:00:00.000Z"} }];
+const batchSize = 500;
+const postInterval = 30;
+
+dplogger.log( data, batchSize, postInterval );
+// Sends data array to DevicePilot, with a batch size/number of updated devices of 500, and a POST request interval of 30 seconds;
+
+```
 #### Configure default logger
 
 ```js
